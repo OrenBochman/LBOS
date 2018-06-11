@@ -1,0 +1,97 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>LBOS2</groupId>
+	<artifactId>LBOS2</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>Little Book Of Semaphores Java </name>
+	<description>Little Book of Semaphores Solutions in Java 8</description>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>${surefire.version}</version>
+				<dependencies>
+					<dependency>
+						<groupId>org.junit.platform</groupId>
+						<artifactId>junit-platform-surefire-provider</artifactId>
+						<version>${surefire-provider.version}</version>
+					</dependency>
+					<dependency>
+						<groupId>org.junit.jupiter</groupId>
+						<artifactId>junit-jupiter-engine</artifactId>
+						<version>${junit.version}</version>
+					</dependency>
+				</dependencies>
+			</plugin>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.7.0</version>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+					<compilerId>javac-with-errorprone</compilerId>
+					<forceJavacCompilerUse>true</forceJavacCompilerUse>
+					<!-- maven-compiler-plugin defaults to targeting Java 5, but our javac 
+						only supports >=6 -->
+				</configuration>
+				<dependencies>
+					<dependency>
+						<groupId>org.codehaus.plexus</groupId>
+						<artifactId>plexus-compiler-javac-errorprone</artifactId>
+						<version>2.8.3</version>
+					</dependency>
+					<!-- override plexus-compiler-javac-errorprone's dependency on Error 
+						Prone with the latest version -->
+					<dependency>
+						<groupId>com.google.errorprone</groupId>
+						<artifactId>error_prone_core</artifactId>
+						<version>2.3.1</version>
+					</dependency>
+				</dependencies>
+			</plugin>
+		</plugins>
+	</build>
+	<dependencies>
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>${jackson.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.junit.platform</groupId>
+			<artifactId>junit-platform-surefire-provider</artifactId>
+			<version>${surefire-provider.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.junit.jupiter</groupId>
+			<version>${junit.version}</version>
+			<artifactId>junit-jupiter-api</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.hamcrest</groupId>
+			<artifactId>hamcrest-all</artifactId>
+			<version>${hamcrest.version}</version>
+		</dependency>
+	</dependencies>
+	<properties>
+		<guava.version>25.1-jre</guava.version>
+		<jackson.version>2.4.4</jackson.version>
+		<junit.version>5.2.0</junit.version>
+		<hamcrest.version>1.3</hamcrest.version>
+		<surefire.version>2.21.0</surefire.version>
+		<surefire-provider.version>1.2.0</surefire-provider.version>
+		<errorprone.version>2.3.1</errorprone.version>
+		<plexus.version>2.8.3</plexus.version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<project.build.sourceDirectory>${project.basedir}/src/main</project.build.sourceDirectory>
+		<project.build.testSourceDirectory>${project.basedir}/src/test</project.build.testSourceDirectory>
+	</properties>
+	<scm>
+		<url>https://github.com/OrenBochman/LBOS.git</url>
+	</scm>
+</project>
